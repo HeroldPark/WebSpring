@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" 
+	id="WebApp_ID" version="4.0"> <!-- metadata-complete="false"로 하게 되면 web.xml 이외에도 Annotation이 있으니 찾아라는 의미.(default:false) -->
+	
+  <display-name>WebSpring</display-name>
+  <welcome-file-list>
+    <!-- <welcome-file>index.html</welcome-file> -->
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/dispatcher-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/config/**/context-*.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<session-config>
+	    <session-timeout>-1</session-timeout>
+	</session-config>
+
+	<error-page>
+	  <exception-type>java.lang.Throwable</exception-type>
+	  <location>/WEB-INF/views/error/error.jsp</location>
+	</error-page>
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/WEB-INF/views/error/404.jsp</location>
+	</error-page>
+	<error-page>
+	  <error-code>500</error-code>
+	  <location>/WEB-INF/views/error/500.jsp</location>
+	</error-page>
+	
+	<!-- 
+	<multipart-config>
+		<localtion>/tmp</localtion>
+		<max-file-size>20848820</max-file-size>
+		<max-request-size>41808841</max-request-size>
+		<file-size-threshold>1048576</file-size-threshold>
+	</multipart-config>
+	 -->
+</web-app>

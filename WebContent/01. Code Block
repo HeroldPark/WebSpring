@@ -1,0 +1,21 @@
+< 코드 블록 사용법 >
+
+1) 
+y의 값은? <%
+	out.print(y);
+%>
+
+2) 1)과 같은 결과값을 출력한다. 
+ y의 값은? <%=y%>
+
+방벙1, 2는 jasper의 service 블록에 들어간다.
+
+3) 아래에서 !가 없으면 jasper의 service 블록에 들어가서 원하는 결과가 나오지 않는다. (java에서는 method 안에 method가 들어갈 수 없다.)
+<%!
+	public int sum(int a, int b) {
+		return a+b;
+	}
+%>
+
+4) 이것은 코드 블록이 아니고 페이지 지시자 블록이라고 한다.
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

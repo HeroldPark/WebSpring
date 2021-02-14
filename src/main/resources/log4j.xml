@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    
+    <!-- Appenders --> 
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p: %c - %m%n" />
+        </Console>
+        
+        <!-- 
+        <appender name="console" class="org.apache.log4j.ConsoleAppender"> 
+		    <param name="Target" value="System.out" /> 
+		    <layout class="org.apache.log4j.PatternLayout"> 
+		    <param name="ConversionPattern" value="%-5p: %c - %m%n" /> 
+		    </layout> 
+		</appender> -->
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com" level="INFO" >
+            <AppenderRef ref="console" />
+        </Logger>
+        
+        <Logger name="com.log" level="INFO" >
+            <AppenderRef ref="console" />
+        </Logger>
+        
+        <Logger name="com.log.Sample" level="INFO" >
+            <AppenderRef ref="console" />
+        </Logger>
+
+		<!-- 3rdparty Loggers --> 
+		<logger name="org.springframework.core"> 
+			<level value="debug" /> 
+		</logger> 
+		<logger name="org.springframework.beans"> 
+			<level value="debug" /> 
+		</logger> 
+		<logger name="org.springframework.context"> 
+			<level value="debug" /> 
+		</logger> 
+		<logger name="org.springframework.web"> 
+			<level value="debug" /> 
+		</logger>
+
+        <Logger name="com.star.blue" level="DEBUG" >
+            <AppenderRef ref="console" />
+        </Logger>
+        
+        <Root level="DEBUG">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+    
+</Configuration>

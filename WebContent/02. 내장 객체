@@ -1,0 +1,6 @@
+내장 객체란?
+
+jasper에서 내부적으로 미리 정해놓고 사용하는 변수들...
+
+request, response pageContext, session, application
+config, out, page, this,..
